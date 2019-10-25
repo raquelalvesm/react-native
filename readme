@@ -1,0 +1,29 @@
+
+
+Você precisa marcar o HAXM installer no Android SDK e instalá-lo.
+
+
+cmd: emulator -no-snapshot -avd Nexus_5_API_24
+
+npm i -g react-native-cli
+
+react-native init consulta-processual
+
+react-native run-android
+react-native run-android --port=8085
+==============================
+Erro:unable to load script. make sure you are either running a metro server
+
+hese steps really help me:
+
+Step 1: Create a directory in android/app/src/main/assets
+
+Linux command: mkdir android/app/src/main/assets
+
+Step 2: Rename index.android.js (in root directory) to index.js (Maybe there is an index.js file in which case you do not need to rename it) then run the following command:
+
+react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
+
+Step 3: Build your APK: react-native run-android
+
+Please use index.js in lastest version.
